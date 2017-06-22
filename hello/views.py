@@ -66,6 +66,8 @@ def login(request):
                 with connection.cursor() as cursor:
                     cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'  ''')
                     row = cursor.fetchone()
+                    cmd= 'manage.py migrate'
+                    os.system(cmd)
                 #request.session['user'] = user
                 return render(request, 'user.html', {'user': row})
 
