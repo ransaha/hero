@@ -53,6 +53,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
+SESSION_ENGINE = "django.contrib.sessions.backends.cache" 
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
