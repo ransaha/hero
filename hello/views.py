@@ -69,7 +69,7 @@ def login(request):
                     cmd = 'python /manage.py migrate'
                     out = os.popen(cmd)
                 #request.session['user'] = user
-                return HttpResponse(out)
+                return HttpResponse(out.read())
                 #return render(request, 'user.html', {'user': row})
 
 def home(request):
