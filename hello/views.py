@@ -64,10 +64,10 @@ def login(request):
                 return render(request, 'home.html', {'user': 'Guest'})
             else:
                 with connection.cursor() as cursor:
-                    cursor.execute('''SELECT name FROM users WHERE username = '%s'  ''' % user)
+                    cursor.execute('''SELECT username FROM users WHERE email = '%s'  ''' % user)
                     row = cursor.fetchone()
-                request.session['user'] = user
-                return render(request, 'user.html', {'user': row})
+                request.session['user'] = row[0]
+                return render(request, 'user.html', {'user': row[0]})
 
 def home(request):
    if request.session.has_key('user'):
