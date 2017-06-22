@@ -64,7 +64,7 @@ def login(request):
             else:
                 request.session['user'] = user
                 with connection.cursor() as cursor:
-                    cursor.execute("SELECT email FROM users WHERE username = 'ransaha'")
+                    cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'''')
                     row = cursor.fetchone()
                 return render(request, 'user.html', {'user': row})
 
