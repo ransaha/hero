@@ -52,6 +52,7 @@
 </div>
 <div class="modal-body">
     <form class="" method="post" action="register">
+	        {% csrf_token %}
 		<div class="form-group">
 		<label for="name" class="cols-sm-2 control-label">Your Name</label>
 		<div class="cols-sm-10">
