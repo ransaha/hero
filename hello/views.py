@@ -96,8 +96,8 @@ def register(request):
         name = request.POST.get('name')
         username = request.POST.get('username')
         email = request.POST.get('email')
-        pass = request.POST.get('password')
+        passw = request.POST.get('password')
         cursor = connection.cursor()
-        cursor.execute('''INSERT INTO public."users" values('%s','%s','%s','%s')  ''' % (username,name,email,password))
+        cursor.execute('''INSERT INTO public."users" values('%s','%s','%s','%s')  ''' % (username,name,email,passw))
         request.session['user'] = username
         return render(request, 'user.html', {'user': username})
