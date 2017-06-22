@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
-from .models import Greeting
 import os
 from django.db import connection
 
@@ -93,8 +92,3 @@ def upload(request):
     user = request.session['user']
     return render(request, 'user.html', {"user" : user})
 
-def db(request):
-    greeting = Greeting()
-    greeting.save()
-    greetings = Greeting.objects.all()
-    return render(request, 'db.html', {'greetings': greetings})
