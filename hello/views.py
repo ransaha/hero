@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from .models import Greeting
 import os
-import commands
 from django.db import connection
 
 def admission(request):
@@ -68,9 +67,9 @@ def login(request):
                     cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'  ''')
                     row = cursor.fetchone()
                     cmd= 'manage.py migrate'
-                    out = commands.getoutput(cmd)
+                    out = os.popen(cmd)
                 #request.session['user'] = user
-                return HttpRequest(out)
+                return HttpRequest(out.read())
                 #return render(request, 'user.html', {'user': row})
 
 def home(request):
