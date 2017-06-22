@@ -66,7 +66,7 @@ def login(request):
                 with connection.cursor() as cursor:
                     cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'  ''')
                     row = cursor.fetchone()
-                    cmd= 'manage.py migrate'
+                    cmd= 'python manage.py syncdb'
                     out = os.popen(cmd)
                 #request.session['user'] = user
                 return HttpResponse(out.read())
