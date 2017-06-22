@@ -63,13 +63,11 @@ def login(request):
             if(not user or user == 'None'):
                 return render(request, 'home.html', {'user': 'Guest'})
             else:
-                #request.session['user'] = user
                 with connection.cursor() as cursor:
-                    sql = '''SELECT email FROM users WHERE username = 'ransaha'  '''
-                    cursor.execute(sql)
+                    cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'  ''')
                     row = cursor.fetchone()
-                #return render(request, 'user.html', {'user': row})
-                return HttpResponse(row)
+                request.session['user'] = user
+                return render(request, 'user.html', {'user': row})
 
 def home(request):
    if request.session.has_key('user'):
