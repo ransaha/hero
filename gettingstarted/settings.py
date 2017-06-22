@@ -1,14 +1,3 @@
-"""
-Django settings for gettingstarted project, on Heroku. For more info, see:
-https://github.com/heroku/heroku-django-template
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.8/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.8/ref/settings/
-"""
-
 import os
 import dj_database_url
 
@@ -17,18 +6,10 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
-# SECURITY WARNING: change this before deploying to production!
 SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-
-# Application definition
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -78,13 +59,15 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd4pg44rc4o3qt1',
+        'USER': 'ffqnjxhnsetfxq',
+        'PASSWORD': '94757f010bbeccd6c287e9b92ef41af9734b9e5b51d943915b7ce864ec4fbb54',
+        'HOST': 'ec2-184-73-167-43.compute-1.amazonaws.com',
+        'PORT': '5432',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
