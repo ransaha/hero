@@ -64,13 +64,10 @@ def login(request):
                 return render(request, 'home.html', {'user': 'Guest'})
             else:
                 with connection.cursor() as cursor:
-                    cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'  ''')
+                    cursor.execute('''SELECT name FROM users WHERE username = '%s'  ''',user)
                     row = cursor.fetchone()
-                    cmd = 'python /manage.py migrate'
-                    out = os.popen(cmd)
                 #request.session['user'] = user
-                return HttpResponse(out.read())
-                #return render(request, 'user.html', {'user': row})
+                return render(request, 'user.html', {'user': row})
 
 def home(request):
    if request.session.has_key('user'):
