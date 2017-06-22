@@ -66,7 +66,8 @@ def login(request):
                 with connection.cursor() as cursor:
                     cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'''')
                     row = cursor.fetchone()
-                return render(request, 'user.html', {'user': row})
+                return HttpResponse(row)                  
+                #return render(request, 'user.html', {'user': row})
 
 def home(request):
    if request.session.has_key('user'):
