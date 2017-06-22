@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+</br></br>
+<h4>User Profile</h4></br></br>
+<div class="card">
+    <form id="up" action="upload" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <span id="load" class="btn btn-default btn-file">Upload<input type='file' id='mf' name='mfile'/></span>
+    <img src="/static/rana.jpg" class="img-circle" style="width:100px;height:100px;">
+    </form>
+    <h1 style="margin:0px;">{{user}}</h1>
+    <p class="title">CEO & Founder, Example</p>
+    <p>Harvard University</p>
+    <hr>
+    <div style="float:left;font-size:18px;"> Rating
+    <div class="progress-circle over50 p70">
+    <span>70%</span>
+    <div class="left-half-clipper">
+    <div class="first50-bar"></div>
+    <div class="value-bar"></div>
+    </div>
+    </div>
+    </div>
+    <div style="float:left;padding: 6px;font-size:20px;">Followers</br><i class="fa fa-heart" aria-hidden="true"></i>270</div>
+    <div style="float:left;padding: 6px;font-size:20px;">Rank</br>20</div>
+    <div style="float:left;padding: 6px;font-size:20px;">Courses Enrolled</br>3</div>
+    <hr>
+    <div style="margin: 24px 0;">
+      <a href="#" style="font-size: 22px;color: black;"><i class="fa fa-dribbble"></i></a>
+      <a href="#" style="font-size: 22px;color: black;"><i class="fa fa-twitter"></i></a>
+      <a href="#" style="font-size: 22px;color: black;"><i class="fa fa-linkedin"></i></a>
+      <a href="#" style="font-size: 22px;color: black;"><i class="fa fa-facebook"></i></a>
+   </div>
+   <p><button class="bb">Contact | </button><button class="bb">Send Email | </button><button class="bb">Follow</button></p>
+</div>
+
+<div style="float:left;">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#cr">My Courses</a></li>
+    <li><a data-toggle="tab" href="#cl">My Class Schedule</a></li>
+    <li><a data-toggle="tab" href="#mk">My Marks</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="cr" class="tab-pane fade in active">
+      <h3>My Courses</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="cl" class="tab-pane fade">
+      <h3>My Class Schedule</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="mk" class="tab-pane fade">
+      <h3>My Marks</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Maths</p>
+    <div class="progress-circle p40" style="margin-left:10%;">
+    <span>40%</span>
+    <div class="left-half-clipper">
+    <div class="first50-bar"></div>
+    <div class="value-bar"></div>
+    </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+<hr style="background-image:none;">
+{% endblock %}

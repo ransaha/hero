@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<text id="tt" style="margin-left:4%;width:35%;max-height:80%;box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.4);">
+    <p style="font-size:18px;margin:0px;"><b>Admission Form</b></p></br>
+
+    <form class="" method="post" action="#">
+        {% csrf_token %}
+        <div class="form-group">
+		<label for="user">Your User Name</label>
+		<div class="input-group">
+		<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+		<input type="text" class="form-control" name="user" id="user"  placeholder="Enter your User Name"/>
+		</div></div>
+
+        <div class="form-group">
+        <label for="course">Program/Course:</label>
+        <select class="form-control" id="course">
+        <option>Information & Technology</option>
+        <option>Mathematics</option>
+        <option>Banking</option>
+        </select>
+        </div>
+
+        <div class="form-group" style="float:left;">
+        <label for="batch">Batch:</label>
+		<div class="input-group">
+		<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+        <select class="form-control" id="batch">
+        <option>Jan-June</option>
+        <option>July-Dec</option>
+        </select>
+        </div></div>
+
+        <div class="form-group">
+        <label for="comment">Comment/Requests:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</text>
+<img src="/static/admission.jpg" style="width:100%;margin-top:-10%;"/>
+<button id="ap" data-toggle="modal" data-target="#myModal" style="cursor:pointer;"> Apply Now </button>
+</br></br>
+<h4>Admission Guidelines</h4>
+</br></br></br></br>
+<h4>Admission Fees Structure</h4>
+{% endblock %}
