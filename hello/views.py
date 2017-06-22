@@ -63,7 +63,10 @@ def login(request):
                 return render(request, 'home.html', {'user': 'Guest'})
             else:
                 request.session['user'] = user
-                return render(request, 'user.html', {'user': user})
+                with connection.cursor() as cursor:
+                cursor.execute("SELECT email FROM users WHERE username = %s", user)
+                row = cursor.fetchone()
+                return render(request, 'user.html', {'user': row})
 
 def home(request):
    if request.session.has_key('user'):
@@ -94,4 +97,3 @@ def db(request):
     greeting.save()
     greetings = Greeting.objects.all()
     return render(request, 'db.html', {'greetings': greetings})
-
