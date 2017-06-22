@@ -66,10 +66,10 @@ def login(request):
                 with connection.cursor() as cursor:
                     cursor.execute('''SELECT email FROM users WHERE username = 'ransaha'  ''')
                     row = cursor.fetchone()
-                    #cmd= 'python manage.py syncdb'
-                    #out = os.popen(cmd)
-                request.session['user'] = user
-                return HttpResponse(row)
+                    cmd = 'python /manage.py migrate'
+                    out = os.popen(cmd)
+                #request.session['user'] = user
+                return HttpResponse(out)
                 #return render(request, 'user.html', {'user': row})
 
 def home(request):
