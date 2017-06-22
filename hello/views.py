@@ -66,7 +66,7 @@ def login(request):
                 with connection.cursor() as cursor:
                     cursor.execute('''SELECT name FROM users WHERE username = '%s'  ''' % user)
                     row = cursor.fetchone()
-                #request.session['user'] = user
+                request.session['user'] = user
                 return render(request, 'user.html', {'user': row})
 
 def home(request):
