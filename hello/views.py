@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from .models import Greeting
 import os
+from django.db import connection
 
 def admission(request):
     if request.session.has_key('user'):
