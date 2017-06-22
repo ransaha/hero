@@ -64,7 +64,7 @@ def login(request):
                 return render(request, 'home.html', {'user': 'Guest'})
             else:
                 with connection.cursor() as cursor:
-                    cursor.execute('''SELECT name FROM users WHERE username = '%s'  ''',user)
+                    cursor.execute('''SELECT name FROM users WHERE username = '%s'  ''' % user)
                     row = cursor.fetchone()
                 #request.session['user'] = user
                 return render(request, 'user.html', {'user': row})
