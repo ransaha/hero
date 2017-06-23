@@ -128,3 +128,20 @@ def doubt_discuss(request):
     row = cursor.fetchall()
     return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
     
+def delete_discuss(request):
+    idno = request.POST.get('del')
+    temp = idno.split(':')
+    user = request.session['user']
+    cursor = connection.cursor()
+    
+    if (temp[1] == 0 or temp[1] == '0') :
+        cursor.execute(''' DELETE FROM doubt where row='%s' or id='%s' ''' % (temp[0],temp[0]))
+        cursor.execute(''' SELECT row,message FROM doubt where id is null ''')
+        row = cursor.fetchall()
+        return render(request, 'doubt.html', {"user" : user,"doubt":row})
+    else:
+        cursor.execute(''' DELETE FROM doubt where row='%s' and id='%s' ''' % (temp[0],temp[1]))
+        cursor.execute(''' SELECT message,row,id FROM doubt where id='%s' ''' % (idno))
+        row = cursor.fetchall()
+        return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
+    
