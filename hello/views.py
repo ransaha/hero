@@ -123,7 +123,7 @@ def doubt_discuss(request):
         discuss =  request.POST.get('discuss')
         cursor.execute(''' INSERT INTO doubt(message,username,id) values('%s','%s','%s')  ''' % (discuss,user,idno))
             
-    sql = " SELECT message FROM doubt where id='%s' " % (idno)
+    sql = " SELECT message,row,id FROM doubt where id='%s' " % (idno)
     cursor.execute(sql)
     row = cursor.fetchall()
     return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
