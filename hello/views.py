@@ -136,9 +136,10 @@ def delete_discuss(request):
     
     if (temp[1] == 0 or temp[1] == '0') :
         cursor.execute(''' DELETE FROM doubt where row='%s' or id='%s' ''' % (temp[0],temp[0]))
-        cursor.execute(''' SELECT row,message FROM doubt where id is null ''')
-        row = cursor.fetchall()
-        return render(request, 'doubt.html', {"user" : user,"doubt":row})
+        #cursor.execute(''' SELECT row,message FROM doubt where id is null ''')
+        #row = cursor.fetchall()
+        #return render(request, 'doubt.html', {"user" : user,"doubt":row})
+        return redirect('doubt')
     else:
         cursor.execute(''' DELETE FROM doubt where row='%s' and id='%s' ''' % (temp[0],temp[1]))
         cursor.execute(''' SELECT message,row,id FROM doubt where id='%s' ''' % (temp[1]))
