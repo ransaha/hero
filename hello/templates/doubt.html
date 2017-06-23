@@ -2,10 +2,7 @@
 {% block content %}
 </br></br>
 <h4 style="width:100%;margin:0;text-align:center;">Discuss your Doubts</h4></br></br>
-<div class="sc">
-<img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;">
-{{doubt}}
-</div>
+{% include doubt.txt %}
 <form method="post" action="doubt">
 {% csrf_token %}
 <div class="form-group">
