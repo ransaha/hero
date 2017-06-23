@@ -5,9 +5,7 @@
 {% for pp in doubt %}
 <div class="sc">
   <img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;">
-  {% for p in pp %}
-<p>{{p}}</p>
-{% endfor %}
+<p>{{pp.0}}</p>
 </div>
 {% endfor %}
 <form method="post" action="doubt">
