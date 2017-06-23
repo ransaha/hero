@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^upload$', views.upload, name='upload'),
     url(r'^register$', views.register, name='register'),
     url(r'^doubt$', views.doubt, name='doubt'),
+    url(r'^doubt_discuss$', views.doubt_discuss, name='doubt_discuss'),
 ]
 
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
