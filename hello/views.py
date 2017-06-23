@@ -106,10 +106,8 @@ def doubt(request):
         user = request.session['user']
         if request.POST.get('doubt') :
             doubt =  request.POST.get('doubt')
-            doubt1 = ''' <div class="sc">
-<img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;"> %s </div>  ''' % (doubt)
             cursor = connection.cursor()
-            cursor.execute('''INSERT INTO public."doubt" values('%s','%s')  ''' % (doubt1,user))
+            cursor.execute('''INSERT INTO public."doubt" values('%s','%s')  ''' % (doubt,user))
             cursor.execute('''SELECT doubt FROM doubt ''')
             row = cursor.fetchall()
         else:
