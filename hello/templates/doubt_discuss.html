@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+</br></br>
+<h4 style="width:100%;margin:0;text-align:center;">Discuss your Doubts</h4></br></br>
+{% for pp in doubt_discuss %}
+<div class="sc">
+  <img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;">
+<p>{{pp.0}}</p>
+</div>
+{% endfor %}
+
+<form method="post" action="doubt_discuss">
+{% csrf_token %}
+<div class="form-group">
+  <label for="comment">Comment:</label>
+  <input type="hidden" name="id" value={{id}}/>
+  <textarea class="form-control" rows="8" name="discuss"></textarea>
+  <button class="btn btn-default" type="submit">Submit</button>
+</div>
+</form>
+
+</br></br></br>
+{% endblock %}
