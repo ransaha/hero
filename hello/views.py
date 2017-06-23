@@ -114,18 +114,16 @@ def doubt(request):
         row = cursor.fetchall()
         return render(request, 'doubt.html', {"user" : user,"doubt":row})
     
-def doubt_discuss(request,idno):
-    if not idno:
-        idno = request.POST.get('idno')
+def doubt_discuss(request):
+    idno = request.POST.get('idno')
     user = request.session['user']
     cursor = connection.cursor()
     
     if request.POST.get('discuss') :
         discuss =  request.POST.get('discuss')
         cursor.execute(''' INSERT INTO doubt(message,username,id) values('%s','%s','%s')  ''' % (discuss,user,idno))
-            
-    sql = " SELECT message,row,id FROM doubt where id='%s' " % (idno)
-    cursor.execute(sql)
+   
+    cursor.execute(''' SELECT message,row,id FROM doubt where id='%s' ''' % (idno))
     row = cursor.fetchall()
     return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
     
@@ -140,6 +138,9 @@ def delete_discuss(request):
         return redirect('doubt')
     else:
         cursor.execute(''' DELETE FROM doubt where row='%s' and id='%s' ''' % (temp[0],temp[1]))
-        return redirect('doubt_discuss', idno=temp[1])
+        cursor.execute(''' SELECT message,row,id FROM doubt where id='%s' ''' % (temp[1]))
+        row = cursor.fetchall()
+        return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":temp[1]})
+      
  
     
