@@ -108,7 +108,7 @@ def doubt(request):
             doubt =  request.POST.get('doubt')
             doubt1 = ''' <div class="sc">
 <img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;"> %s </div>  ''' % (doubt)
-            fo = open("/hello/templates/doubt.txt", "a+")
+            fo = open("hello/templates/doubt.txt", "a+")
             fo.write(doubt1)
             fo.close()
         return render(request, 'doubt.html', {"user" : user})
