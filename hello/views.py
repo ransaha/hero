@@ -98,18 +98,20 @@ def register(request):
         email = request.POST.get('email')
         passw = request.POST.get('password')
         cursor = connection.cursor()
-        cursor.execute('''INSERT INTO public."users" values('%s','%s','%s','%s')  ''' % (username,name,email,passw))
+        cursor.execute('''INSERT INTO users values('%s','%s','%s','%s')  ''' % (username,name,email,passw))
         request.session['user'] = username
         return render(request, 'user.html', {'user': username})
     
 def doubt(request):
         user = request.session['user']
+        row = []
         if request.POST.get('doubt') :
             doubt =  request.POST.get('doubt')
             doubt1 = ''' <div class="sc">
 <img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;"> %s </div>  ''' % (doubt)
-            fo = open("hello/templates/doubt.txt", "a+")
-            fo.write(doubt1)
-            fo.close()
-        return render(request, 'doubt.html', {"user" : user})
+            cursor = connection.cursor()
+            cursor.execute('''INSERT INTO public."doubt" values('%s','%s','%s')  ''' % (doubt1,user,date))
+            cursor.execute('''SELECT doubt FROM doubt ''')
+            row = cursor.fetchall()
+        return render(request, 'doubt.html', {"user" : user,"doubt":row})
 
