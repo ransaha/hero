@@ -101,3 +101,9 @@ def register(request):
         cursor.execute('''INSERT INTO public."users" values('%s','%s','%s','%s')  ''' % (username,name,email,passw))
         request.session['user'] = username
         return render(request, 'user.html', {'user': username})
+    
+def doubt(request):
+        user = request.session['user']
+        doubt =  request.POST.get('doubt')
+        return render(request, 'doubt.html', {"user" : user,"doubt":doubt})
+
