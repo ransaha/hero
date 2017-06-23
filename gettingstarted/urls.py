@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^logout$', views.logout, name='logout'),
     url(r'^upload$', views.upload, name='upload'),
     url(r'^register$', views.register, name='register'),
+    url(r'^doubt$', views.doubt, name='doubt'),
 ]
 
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
