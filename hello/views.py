@@ -115,7 +115,7 @@ def doubt(request):
         return render(request, 'doubt.html', {"user" : user,"doubt":row})
     
 def doubt_discuss(request):
-    idno = request.POST.get['idno'] 
+    idno = request.POST.get('idno')
     user = request.session['user']
     cursor = connection.cursor()
     
