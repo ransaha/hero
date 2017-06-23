@@ -104,15 +104,27 @@ def register(request):
     
 def doubt(request):
         user = request.session['user']
+        cursor = connection.cursor()
+        
         if request.POST.get('doubt') :
             doubt =  request.POST.get('doubt')
-            cursor = connection.cursor()
-            cursor.execute('''INSERT INTO public."doubt" values('%s','%s')  ''' % (doubt,user))
-            cursor.execute('''SELECT doubt FROM doubt ''')
-            row = cursor.fetchall()
-        else:
-            cursor = connection.cursor()
-            cursor.execute('''SELECT doubt FROM doubt ''')
-            row = cursor.fetchall()
+            cursor.execute(''' INSERT INTO doubt(message,username) values('%s','%s')  ''' % (doubt,user))
+     
+        cursor.execute(''' SELECT row,message FROM doubt where id is null ''')
+        row = cursor.fetchall()
         return render(request, 'doubt.html', {"user" : user,"doubt":row})
-
+    
+def doubt_discuss(request):
+    id = request.POST.get['id'] 
+    user = request.session['user']
+    cursor = connection.cursor()
+    
+    if request.POST.get('discuss') :
+        discuss =  request.POST.get('discuss')
+        cursor.execute(''' INSERT INTO doubt(message,username,id) values('%s','%s',%s)  ''' % (discuss,user,id))
+            
+    sql = " SELECT message FROM doubt where id=%s " % (id)
+    cursor.execute(sql)
+    row = cursor.fetchall()
+    return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"id":id})
+    
