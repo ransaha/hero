@@ -129,8 +129,8 @@ def doubt_discuss(request):
     return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
     
 def delete_discuss(request):
-    idno = request.POST.get('del')
-    temp = idno.split(':')
+    idn = request.POST.get('del')
+    temp = idn.split(':')
     user = request.session['user']
     cursor = connection.cursor()
     
@@ -139,6 +139,6 @@ def delete_discuss(request):
         return redirect('doubt')
     else:
         cursor.execute(''' DELETE FROM doubt where row='%s' and id='%s' ''' % (temp[0],temp[1]))
-        return redirect('doubt_discuss', "idno":temp[1])
+        return redirect('doubt_discuss', idno:temp[1])
  
     
