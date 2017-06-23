@@ -115,7 +115,7 @@ def doubt(request):
         return render(request, 'doubt.html', {"user" : user,"doubt":row})
     
 def doubt_discuss(request):
-    idno = request.POST.get['id'] 
+    idno = request.POST.get['idno'] 
     user = request.session['user']
     cursor = connection.cursor()
     
@@ -126,5 +126,5 @@ def doubt_discuss(request):
     sql = " SELECT message FROM doubt where id=%s " % (idno)
     cursor.execute(sql)
     row = cursor.fetchall()
-    return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"id":idno})
+    return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
     
