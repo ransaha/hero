@@ -2,12 +2,17 @@
 {% block content %}
 </br></br>
 <h4 style="width:100%;margin:0;text-align:center;">Discuss your Doubts</h4></br></br>
+<form method="post">
 {% for pp in doubt_discuss %}
 <div class="sc">
-  <img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;">
-<p>{{pp.0}}</p>
+<img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;">
+{{pp.0}}
+<button type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.1}}:{{pp.2}}">
+  <i class="fa fa-trash-o" aria-hidden="true"></i>
+  </button>
 </div>
 {% endfor %}
+<form>
 
 <form method="post" action="doubt_discuss">
 {% csrf_token %}
