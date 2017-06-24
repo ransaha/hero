@@ -97,8 +97,10 @@ def register(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         passw = request.POST.get('password')
+        phone = request.POST.get('phone')
+        gender = request.POST.get('gender')
         cursor = connection.cursor()
-        cursor.execute('''INSERT INTO users values('%s','%s','%s','%s')  ''' % (username,name,email,passw))
+        cursor.execute('''INSERT INTO users(username,name,email,password,phone,gender) values('%s','%s','%s','%s','%s','%s')  ''' % (username,name,email,passw,phone,gender))
         request.session['user'] = username
         return render(request, 'user.html', {'user': username})
     
