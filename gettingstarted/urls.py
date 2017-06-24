@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^upload$', views.upload, name='upload'),
     url(r'^register$', views.register, name='register'),
     url(r'^doubt$', views.doubt, name='doubt'),
-    url(r'^doubt_discuss$', views.doubt_discuss, name='doubt_discuss'),
+    url(r'^doubt_discuss', views.doubt_discuss, name='doubt_discuss'),
     url(r'^delete_discuss$', views.delete_discuss, name='delete_discuss'),
 ]
 
