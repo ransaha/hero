@@ -118,7 +118,6 @@ def doubt(request):
     
 def doubt_discuss(request):
     idno = request.GET.get('idno')
-    return HttpResponse(idno)
     user = request.session['user']
     cursor = connection.cursor()
     
