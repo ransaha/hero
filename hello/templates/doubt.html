@@ -7,9 +7,9 @@
 {% csrf_token %}
 <p>
 {% for pp in doubt %}
-<li>
+<li style="list-style: none;left-margin:10%;">
 <button type="submit" onclick='this.form.action="doubt_discuss";' class="btn btn-link" name="idno" value="{{pp.0}}">{{pp.1}}</button>
-<button type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.0}}:0">
+<button style="left-margin:10%;" type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.0}}:0">
   <i class="fa fa-trash-o" aria-hidden="true"></i>
   </button>
 </li>
