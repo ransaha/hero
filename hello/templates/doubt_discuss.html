@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 </br></br>
-
 <h4>Discuss your Doubts</h4></br>
 {% for pp in doubt_discuss %}
 <div style="margin-left:10%;border-top:1px solid silver;width:80%;padding:2px;">
+</br>{{pp.3}}</br>
 {{pp.0}}
-<a href="delete_discuss?idno={{pp.1}}:{{pp.2}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+<a style="margin-left:10%;" href="delete_discuss?idno={{pp.1}}:{{pp.2}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 </div></br></br>
 {% endfor %}
 </br></br>
