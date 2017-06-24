@@ -8,7 +8,10 @@
 {% for pp in doubt %}
 <li>
 <a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>
-<a style="margin-left:10%;"  href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>{{pp.2}}
+{% if pp.2 == user %}
+<a style="margin-left:10%;"  href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+{% endif %}
+{{pp.2}}
 </li>
 {% endfor %}
 </ul>
