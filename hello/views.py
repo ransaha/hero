@@ -140,8 +140,7 @@ def delete_discuss(request):
         return redirect('doubt')
     else:
         cursor.execute(''' DELETE FROM doubt where row='%s' and id='%s' ''' % (temp[0],temp[1]))
-        url = '''/doubt_discuss?idno=%s''' % temp[1]
-        return redirect(url)
+        return redirect('/doubt_discuss?idno=%s' % temp[1])
     
       
  
