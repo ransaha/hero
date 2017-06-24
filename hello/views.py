@@ -112,7 +112,7 @@ def doubt(request):
             doubt =  request.POST.get('doubt')
             cursor.execute(''' INSERT INTO doubt(message,username) values('%s','%s')  ''' % (doubt,user))
      
-        cursor.execute(''' SELECT row,message FROM doubt where id is null ''')
+        cursor.execute(''' SELECT row,message,username FROM doubt where id is null ''')
         row = cursor.fetchall()
         return render(request, 'doubt.html', {"user" : user,"doubt":row})
     
@@ -125,7 +125,7 @@ def doubt_discuss(request):
         discuss =  request.POST.get('discuss')
         cursor.execute(''' INSERT INTO doubt(message,username,id) values('%s','%s','%s')  ''' % (discuss,user,idno))
    
-    cursor.execute(''' SELECT message,row,id FROM doubt where id='%s' ''' % (idno))
+    cursor.execute(''' SELECT message,row,id,username FROM doubt where id='%s' ''' % (idno))
     row = cursor.fetchall()
     return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
     
