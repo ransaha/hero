@@ -1,28 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 </br></br>
-<h4 style="width:100%;margin:0;text-align:center;">Discuss your Doubts</h4></br></br>
+<h4>Discuss your Doubts</h4></br>
 <form method="post">
 {% csrf_token %}
 {% for pp in doubt_discuss %}
-<div class="sc">
-<img src="/static/user2.png" class="img-circle" style="width:80px;height:80px;top:-50px;left:-50px;position:relative;">
+<div style="margin-left:10%;border:1px solid silver;background:white;width:80%;padding:5px;">
 {{pp.0}}
-<button type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.1}}:{{pp.2}}">
-  <i class="fa fa-trash-o" aria-hidden="true"></i>
-  </button>
+<button style="margin-left:5%;" type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.1}}:{{pp.2}}">
+<i class="fa fa-trash-o" aria-hidden="true"></i>
+</button>
 </div>
 {% endfor %}
 </form>
-
-<h4 style="width:100%;margin:0;text-align:center;">Provide Your Comments</h4></br></br>
+</br></br>
+<h4>Provide Your Comments</h4></br>
 <form method="post" action="doubt_discuss">
 {% csrf_token %}
-<div class="form-group">
   <input type="hidden" name="idno" value="{{idno}}"/>
-  <textarea class="form-control" rows="8" name="discuss"></textarea>
-  <button class="btn btn-default" type="submit">Submit</button>
-</div>
+  <textarea style="margin-left:10%;width:80%" class="form-control" rows="8" name="discuss"></textarea></br>
+  <button style="margin-left:10%;" class="btn btn-default" type="submit">Submit</button>
 </form>
 
 </br></br></br>
