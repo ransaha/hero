@@ -5,11 +5,11 @@
 <h4>Latest Discussions</h4>
 <form method="post">
 {% csrf_token %}
-<ul style="list-style-type:none;margin-lef:10%;">
+<ul style="list-style-type:none;margin-lef:30%;">
 {% for pp in doubt %}
 <li>
 <button type="submit" onclick='this.form.action="doubt_discuss";' class="btn btn-link" name="idno" value="{{pp.0}}">{{pp.1}}</button>
-<button style="margin-left:10%;" type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.0}}:0">
+<button style="margin-left:20%;" type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.0}}:0">
   <i class="fa fa-trash-o" aria-hidden="true"></i>
   </button>
 </li>
