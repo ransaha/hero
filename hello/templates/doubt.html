@@ -7,14 +7,12 @@
 {% csrf_token %}
 <ul>
 {% for pp in doubt %}
-<div class="sc">
 <li>
 <button type="submit" onclick='this.form.action="doubt_discuss";' class="btn btn-link" name="idno" value="{{pp.0}}">{{pp.1}}</button>
 <button type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.0}}:0">
   <i class="fa fa-trash-o" aria-hidden="true"></i>
   </button>
 </li>
-</div>
 {% endfor %}
 </ul>
 </form>
@@ -22,10 +20,8 @@
 <h4 style="width:100%;margin:0;text-align:center;">Submit Your Doubts</h4></br></br>
 <form method="post" action="doubt">
 {% csrf_token %}
-<div class="form-group">
   <textarea class="form-control" rows="5" name="doubt"></textarea>
   <button class="btn btn-default" type="submit">Submit</button>
-</div>
 </form>
 
 </br></br></br>
