@@ -3,20 +3,16 @@
 </br></br>
 
 <h4>Latest Discussions</h4></br>
-<form method="post">
 {% csrf_token %}
 <ul style="margin-left:10%;">
 {% for pp in doubt %}
 <li>
-  <a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>
-<!--<button type="submit" onclick='this.form.action="doubt_discuss";' class="btn btn-link" name="idno" value="{{pp.0}}">{{pp.1}}</button>-->
-<button style="margin-left:5%;" type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.0}}:0">
-  <i class="fa fa-trash-o" aria-hidden="true"></i>
-  </button>
+<a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>
+<a href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 </li>
 {% endfor %}
-  </ul>
-</form>
+</ul>
+
 </br></br>
 <h4>Submit Your Doubts</h4></br>
 <form method="post" action="doubt">
