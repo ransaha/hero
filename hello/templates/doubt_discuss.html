@@ -15,9 +15,8 @@
 </form>
 </br></br>
 <h4>Provide Your Comments</h4></br>
-<form method="post" action="doubt_discuss">
+<form method="post" action="doubt_discuss?idno={{idno}}">
 {% csrf_token %}
-  <input type="hidden" name="idno" value="{{idno}}"/>
   <textarea style="margin-left:10%;width:80%" class="form-control" rows="8" name="discuss"></textarea></br>
   <button style="margin-left:10%;" class="btn btn-default" type="submit">Submit</button>
 </form>
