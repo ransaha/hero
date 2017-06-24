@@ -2,10 +2,10 @@
 {% block content %}
 </br></br>
 
-<h4 style="width:100%;margin:0;text-align:center;">Latest Discussions</h4></br></br>
+<h4>Latest Discussions</h4></br></br>
 <form method="post">
 {% csrf_token %}
-<ul>
+<p><ul>
 {% for pp in doubt %}
 <li>
 <button type="submit" onclick='this.form.action="doubt_discuss";' class="btn btn-link" name="idno" value="{{pp.0}}">{{pp.1}}</button>
@@ -14,15 +14,15 @@
   </button>
 </li>
 {% endfor %}
-</ul>
+</ul></p>
 </form>
 
-<h4 style="width:100%;margin:0;text-align:center;">Submit Your Doubts</h4></br></br>
-<form method="post" action="doubt">
+<h4>Submit Your Doubts</h4></br></br>
+<p><form method="post" action="doubt">
 {% csrf_token %}
   <textarea class="form-control" rows="5" name="doubt"></textarea>
   <button class="btn btn-default" type="submit">Submit</button>
-</form>
+</form></p>
 
 </br></br></br>
 {% endblock %}
