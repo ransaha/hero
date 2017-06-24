@@ -4,13 +4,13 @@
 
 <h4>Latest Discussions</h4></br>
 {% for pp in doubt %}
-<div style="border-top:1px solid silver;margin-left:10%;">
+<div style="border-top:1px solid silver;margin-left:10%;width:80%;">
 <a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>
 {% if pp.2 == user %}
 <a style="margin-left:10%;"  href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 {% endif %}
 {{pp.2}}
-</div>
+</div></br>
 {% endfor %}
 </br></br>
 <h4>Submit Your Doubts</h4></br>
