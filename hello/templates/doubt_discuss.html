@@ -6,7 +6,9 @@
 <div style="margin-left:10%;border-top:1px solid silver;width:80%;padding:2px;">
 {{pp.3}}</br></br>
 {{pp.0}}
+{% if pp.3 == user %}
 <a style="margin-left:10%;" href="delete_discuss?idno={{pp.1}}:{{pp.2}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+{% endif %}
 </div></br>
 {% endfor %}
 </br></br>
