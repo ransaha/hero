@@ -7,8 +7,8 @@
 <ul style="margin-left:10%;">
 {% for pp in doubt %}
 <li>
-<a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>
-<a href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+<a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>{{pp.2}}
+<a style="margin-left:10%;"  href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 </li>
 {% endfor %}
 </ul>
