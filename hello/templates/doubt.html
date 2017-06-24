@@ -5,7 +5,7 @@
 <h4>Latest Discussions</h4>
 <form method="post">
 {% csrf_token %}
-<ul style="list-style-type:none;margin-lef:30%;">
+<ul style="list-style-type:none;margin-left:30%;">
 {% for pp in doubt %}
 <li>
 <button type="submit" onclick='this.form.action="doubt_discuss";' class="btn btn-link" name="idno" value="{{pp.0}}">{{pp.1}}</button>
