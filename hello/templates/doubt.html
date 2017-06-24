@@ -3,19 +3,15 @@
 </br></br>
 
 <h4>Latest Discussions</h4></br>
-{% csrf_token %}
-<ul style="margin-left:10%;">
 {% for pp in doubt %}
-<li>
+<div style="margin-top:1px solid silver;">
 <a href="doubt_discuss?idno={{pp.0}}">{{pp.1}}</a>
 {% if pp.2 == user %}
 <a style="margin-left:10%;"  href="delete_discuss?idno={{pp.0}}:0"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 {% endif %}
 {{pp.2}}
-</li>
+</div>
 {% endfor %}
-</ul>
-
 </br></br>
 <h4>Submit Your Doubts</h4></br>
 <form method="post" action="doubt">
