@@ -5,12 +5,12 @@
 <form method="post">
 {% csrf_token %}
 {% for pp in doubt_discuss %}
-<div style="margin-left:10%;border:1px solid silver;border-left:none;border-right:none;width:80%;padding:2px;">
+<div style="margin-left:10%;border-top:1px solid silver;width:80%;padding:2px;">
 {{pp.0}}
 <button style="margin-left:5%;" type="submit" onclick='this.form.action="delete_discuss";' class="btn btn-link" name="del" value="{{pp.1}}:{{pp.2}}">
 <i class="fa fa-trash-o" aria-hidden="true"></i>
 </button>
-</div></br>
+</div></br></br>
 {% endfor %}
 </form>
 </br></br>
