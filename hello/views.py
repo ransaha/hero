@@ -150,7 +150,6 @@ def send(request):
     return JsonResponse({ 'msg': msg })
 
 def message(request):
-    cursor = connection.cursor()
     cursor.execute(''' SELECT * FROM chat ''')
     c = cursor.fetchall()
     return render(request, 'message.html', {'chat': c})
