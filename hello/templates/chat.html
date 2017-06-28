@@ -21,9 +21,9 @@
         <div id="msg-list-div" class="panel-body">
             <ul id="msg-list" class="list-group">
                 {% for obj in chat %}
-                        <li class="text-right list-group-item">{{ obj.1 }}</li>
+                        <li class="text-left list-group-item">{{ obj.0 }} : {{ obj.1 }}</li>
                 {% empty %}
-                    <li class="text-right list-group-item">No messages yet!</li>
+                    <li class="text-left list-group-item">No messages yet!</li>
                 {% endfor %}
                 <script>
                     var chatlist = document.getElementById('msg-list-div');
