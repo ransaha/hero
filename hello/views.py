@@ -4,8 +4,6 @@ from django.core.files.storage import FileSystemStorage
 import os
 from django.db import connection
 
-cursor = connection.cursor()
-
 def admission(request):
     if request.session.has_key('user'):
         user = request.session['user']
@@ -56,7 +54,7 @@ def success(request):
         return render(request, 'success.html',{"user":'Guest'})
 
 def login(request):
-      global cursor
+      cursor = connection.cursor()
       if request.session.has_key('user'):
             user = request.session['user']
             return render(request, 'user.html', {"user" : user})
@@ -95,7 +93,7 @@ def upload(request):
     return render(request, 'user.html', {"user" : user})
 
 def register(request):
-        global cursor
+        cursor = connection.cursor()
         name = request.POST.get('name')
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -107,7 +105,7 @@ def register(request):
         return render(request, 'user.html', {'user': username})
     
 def doubt(request):
-        global cursor
+        cursor = connection.cursor()
         user = request.session['user']
         if request.POST.get('doubt') :
             doubt =  request.POST.get('doubt')
@@ -118,7 +116,7 @@ def doubt(request):
         return render(request, 'doubt.html', {"user" : user,"doubt":row})
     
 def doubt_discuss(request):
-    global cursor
+    cursor = connection.cursor()
     idno = request.GET.get('idno')
     user = request.session['user']
     
@@ -131,7 +129,7 @@ def doubt_discuss(request):
     return render(request, 'doubt_discuss.html', {"user" : user,"doubt_discuss":row,"idno":idno})
     
 def delete_discuss(request):
-    global cursor
+    cursor = connection.cursor()
     idn = request.GET.get('idno')
     temp = idn.split(':')
     user = request.session['user']
@@ -144,21 +142,21 @@ def delete_discuss(request):
         return redirect('/doubt_discuss?idno=%s' % temp[1])
     
 def chat(request):
-    global cursor
+    cursor = connection.cursor()
     cursor.execute(''' SELECT * FROM chat ''')
     c = cursor.fetchall()
     user = request.session['user']
     return render(request, "chat.html", {'chat':c,'user':user})
 
 def send(request):
-    global cursor
+    cursor = connection.cursor()
     msg = request.POST.get('msgbox')
     cursor.execute(''' INSERT INTO chat("user",message) values('%s','%s') ''' % (request.session['user'],msg))
     ms = request.session['user'] + ' : ' + msg
     return JsonResponse({ 'msg': ms })
 
 def message(request):
-    global cursor
+    cursor = connection.cursor()
     cursor.execute(''' SELECT * FROM chat ''')
     c = cursor.fetchall()
     user = request.session['user']
