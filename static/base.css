@@ -155,10 +155,6 @@ hr
 }
 #up:hover #load {opacity:1;}
 
-#chat-bottom {
-    position: fixed;
-    bottom: 50px;
-    }
 .panel-body {
     overflow-y: scroll;
     height: 85%;
