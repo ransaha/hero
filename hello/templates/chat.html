@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-    .panel-body {
-    overflow-y: scroll;
-    height: 85%;
-    }
+    
 ul.ChatLog {
   list-style: none;
 }
@@ -69,8 +66,7 @@ ul.ChatLog {
 }
 
 </style>
-    <div id="chat-body" class="panel panel-default">
-        <div id="msg-list-div" class="panel-body">
+        <div id="msg-list-div">
                 <ul id="msg-list" class="ChatLog">
                 {% for obj in chat %}
                 {% if obj.0 == user %}
@@ -87,7 +83,6 @@ ul.ChatLog {
                 </script>
             </ul>
         </div>
-    </div>
     <form id="chat-form" method="post" action="send">
             <input type="text" id="chat-msg" name="chat-msg" >
             <input class="btn btn-default" id="send" type="submit"/>
