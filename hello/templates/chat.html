@@ -46,9 +46,8 @@
 <script>
 $('#chat-form').on('submit', function(event){
     event.preventDefault();
-    alert("inside");
     $.ajax({
-        url : '/send',
+        url : 'send',
         type : 'POST',
         data : { 'msgbox' : $('#chat-msg').val() },
         success : function(json){
