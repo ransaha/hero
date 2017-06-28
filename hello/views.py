@@ -142,7 +142,8 @@ def delete_discuss(request):
 def chat(request):
     cursor.execute(''' SELECT * FROM chat ''')
     c = cursor.fetchall()
-    return render(request, "chat.html", {'chat': c})
+    user = request.session['user']
+    return render(request, "chat.html", {'chat':c,'user':user})
 
 def send(request):
     msg = request.POST.get('msgbox')
@@ -153,5 +154,5 @@ def send(request):
 def message(request):
     cursor.execute(''' SELECT * FROM chat ''')
     c = cursor.fetchall()
-    return render(request, 'message.html', {'chat': c})
+    return render(request, 'message.html', {'chat':c,'user':user})
  
