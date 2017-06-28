@@ -145,7 +145,7 @@ def chat(request):
     return render(request, "chat.html", {'chat': c})
 
 def send(request):
-    msg = request.POST['msgbox']
+    msg = 'rana' #request.POST['msgbox']
     cursor.execute(''' INSERT INTO chat(user,message) values('%s','%s') ''' % (request.session['user'],msg))
     return JsonResponse({ 'msg': msg })
 
