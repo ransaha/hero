@@ -161,5 +161,6 @@ def message(request):
     global cursor
     cursor.execute(''' SELECT * FROM chat ''')
     c = cursor.fetchall()
+    user = request.session['user']
     return render(request, 'message.html', {'chat':c,'user':user})
  
