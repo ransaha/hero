@@ -1,8 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from django.shortcuts import render,redirect
 from django.core.files.storage import FileSystemStorage
 import os
 from django.db import connection
+
+cursor = connection.cursor()
 
 def admission(request):
     if request.session.has_key('user'):
@@ -62,9 +64,8 @@ def login(request):
             if(not user or user == 'None'):
                 return render(request, 'home.html', {'user': 'Guest'})
             else:
-                with connection.cursor() as cursor:
-                    cursor.execute('''SELECT username FROM users WHERE email = '%s'  ''' % user)
-                    row = cursor.fetchone()
+                cursor.execute('''SELECT username FROM users WHERE email = '%s'  ''' % user)
+                row = cursor.fetchone()
                 request.session['user'] = row[0]
                 return render(request, 'user.html', {'user': row[0]})
 
@@ -99,14 +100,12 @@ def register(request):
         passw = request.POST.get('password')
         phone = request.POST.get('phone')
         gender = request.POST.get('gender')
-        cursor = connection.cursor()
         cursor.execute('''INSERT INTO users(username,name,email,password,phone,gender) values('%s','%s','%s','%s','%s','%s')  ''' % (username,name,email,passw,phone,gender))
         request.session['user'] = username
         return render(request, 'user.html', {'user': username})
     
 def doubt(request):
         user = request.session['user']
-        cursor = connection.cursor()
         
         if request.POST.get('doubt') :
             doubt =  request.POST.get('doubt')
@@ -119,7 +118,6 @@ def doubt(request):
 def doubt_discuss(request):
     idno = request.GET.get('idno')
     user = request.session['user']
-    cursor = connection.cursor()
     
     if request.POST.get('discuss') :
         discuss =  request.POST.get('discuss')
@@ -133,7 +131,6 @@ def delete_discuss(request):
     idn = request.GET.get('idno')
     temp = idn.split(':')
     user = request.session['user']
-    cursor = connection.cursor()
     
     if (temp[1] == 0 or temp[1] == '0') :
         cursor.execute(''' DELETE FROM doubt where row='%s' or id='%s' ''' % (temp[0],temp[0]))
@@ -142,6 +139,19 @@ def delete_discuss(request):
         cursor.execute(''' DELETE FROM doubt where row='%s' and id='%s' ''' % (temp[0],temp[1]))
         return redirect('/doubt_discuss?idno=%s' % temp[1])
     
-      
+def chat(request):
+    cursor.execute(''' SELECT * FROM chat ''')
+    c = cursor.fetchall()
+    return render(request, "chat.html", {'chat': c})
+
+def send(request):
+    msg = request.POST['msgbox']
+    cursor.execute(''' INSERT INTO chat(user,message) values('%s','%s') ''' % (request.session['user'],msg))
+    return JsonResponse({ 'msg': msg })
+
+def message(request):
+    cursor = connection.cursor()
+    cursor.execute(''' SELECT * FROM chat ''')
+    c = cursor.fetchall()
+    return render(request, 'message.html', {'chat': c})
  
-    
