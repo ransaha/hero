@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^doubt$', views.doubt, name='doubt'),
     url(r'^doubt_discuss', views.doubt_discuss, name='doubt_discuss'),
     url(r'^delete_discuss', views.delete_discuss, name='delete_discuss'),
+    url(r'^chat$', views.chat, name='chat'),
+    url(r'^send$', views.send, name='send'),
+    url(r'^message$', views.message, name='message'),
 ]
 
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
