@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <style>
-    
+.panel
+{
+    width:50%;
+    margin-left:30%;
+}
 ul.ChatLog {
   list-style: none;
 }
 
-.ChatLog {
-  max-width: 20em;
-  margin: 0 auto;
-}
 .ChatLog .ChatLog__entry {
   margin: .5em;
 }
@@ -66,6 +66,9 @@ ul.ChatLog {
 }
 
 </style>
+        <div class="panel panel-default">
+        <div class="panel-heading">Chat History</div>
+        <div class="panel-body">
         <div id="msg-list-div">
                 <ul id="msg-list" class="ChatLog">
                 {% for obj in chat %}
@@ -87,4 +90,5 @@ ul.ChatLog {
             <input type="text" id="chat-msg" name="chat-msg" >
             <input class="btn btn-default" id="send" type="submit"/>
     </form>
+      </div></div>
 {% endblock %}
