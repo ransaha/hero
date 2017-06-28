@@ -73,9 +73,13 @@ ul.ChatLog {
         <div id="msg-list-div" class="panel-body">
                 <ul id="msg-list" class="ChatLog">
                 {% for obj in chat %}
-                    <li class="ChatLog__entry"><p class="ChatLog__message">{{ obj.0 }} : {{ obj.1 }}</p></li>
+                {% if obj.0 == user %}
+                <li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">{{ obj.0 }} : {{ obj.1 }}</p></li>
+                {% else %}
+                <li class="ChatLog__entry"><p class="ChatLog__message">{{ obj.0 }} : {{ obj.1 }}</p></li>
+                {% endif %}
                 {% empty %}
-                    <li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">No messages yet!</p></li>
+                <li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">No messages yet!</p></li>
                 {% endfor %}
                 <script>
                     var chatlist = document.getElementById('msg-list-div');
