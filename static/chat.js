@@ -6,7 +6,7 @@ $('#chat-form').on('submit', function(event){
         data : { 'msgbox' : $('#chat-msg').val() },
         success : function(json){
             $('#chat-msg').val('');
-            $('#msg-list').append('<li class="text-right list-group-item">' + json.msg + '</li>');
+            $('#msg-list').append('<li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">' + json.msg + '</p></li>');
             var chatlist = document.getElementById('msg-list-div');
             chatlist.scrollTop = chatlist.scrollHeight;
         }
