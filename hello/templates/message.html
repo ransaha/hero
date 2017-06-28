@@ -1,5 +1,5 @@
 {% for obj in chat %}
-        <li class="text-left list-group-item">{{ obj.0 }} : {{ obj.1 }}</li>
+<li class="ChatLog__entry"><p class="ChatLog__message">{{ obj.0 }} : {{ obj.1 }}</p></li>
 {% empty %}
-    <li class="text-left list-group-item">No messages yet!</li>
+<li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">No messages yet!</p></li>
 {% endfor %}
