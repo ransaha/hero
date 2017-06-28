@@ -1,0 +1,5 @@
+{% for obj in chat %}
+        <li class="text-right list-group-item">{{ obj.message }}</li>
+{% empty %}
+    <li class="text-right list-group-item">No messages yet!</li>
+{% endfor %}
