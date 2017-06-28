@@ -1,4 +1,3 @@
-<script>
 $('#chat-form').on('submit', function(event){
     event.preventDefault();
     $.ajax({
@@ -62,4 +61,3 @@ $.ajaxSetup({
         }
     }
 });
-</script>
