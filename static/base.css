@@ -154,8 +154,3 @@ hr
   cursor: pointer;
 }
 #up:hover #load {opacity:1;}
-
-.panel-body {
-    overflow-y: scroll;
-    height: 85%;
-    }
