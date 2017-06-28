@@ -71,7 +71,7 @@ ul.ChatLog {
 </style>
     <div id="chat-body" class="panel panel-default">
         <div id="msg-list-div" class="panel-body">
-                <ul id="msg-list" class="ChatLog">
+                <ul id="msg-list" class="list-group">
                 {% for obj in chat %}
                 {% if obj.0 == user %}
                 <li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">{{ obj.0 }} : {{ obj.1 }}</p></li>
