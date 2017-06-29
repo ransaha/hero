@@ -68,7 +68,7 @@ ul.ChatLog {
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
     <h4 class="modal-title"> GuruCool.com - Chat </h4>
     </div>
-    <div class="modal-body" style="max-height:80vh;overflow:auto;">
+    <div class="modal-body" id="sl" style="max-height:80vh;overflow:auto;">
         <div id="msg-list-div">
                 <ul id="msg-list" class="ChatLog">
                 {% for obj in chat %}
@@ -90,7 +90,7 @@ ul.ChatLog {
 <script src="/static/chat.js"></script>
 <script>
 $(document).ready(function(){
-	$('#msg-list-div').scrollTop($('#msg-list-div')[0].scrollHeight); 
+	$('#sl').scrollTop($('#sl')[0].scrollHeight); 
 });
 </script>
 </body>
