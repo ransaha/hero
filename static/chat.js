@@ -7,8 +7,6 @@ $('#chat-form').on('submit', function(event){
         success : function(json){
             $('#chat-msg').val('');
             $('#msg-list').append('<li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">' + json.msg + '</p></li>');
-            var chatlist = document.getElementById('msg-list-div');
-            chatlist.scrollTop = chatlist.scrollHeight;
         }
     });
 });
