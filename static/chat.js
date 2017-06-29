@@ -10,16 +10,12 @@ $('#chat-form').on('submit', function(event){
         }
     });
 });
-
-function getMessages(){
-        $.get('/message', function(messages){
+var tt;
+$(function(){
+    tt = setInterval(function(){$.get('/message', function(messages){
             $('#msg-list').html(messages);
 	    $('#sl').scrollTop($('#sl')[0].scrollHeight); 
-        });
-}
-
-$(function(){
-    refreshTimer = setInterval(getMessages, 500);
+        });}, 500);
 });
 
 // using jQuery
