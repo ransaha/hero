@@ -13,11 +13,10 @@ $('#chat-form').on('submit', function(event){
 
 function getMessages()
 {
-        $.get('/message', function(messages){
+        setInterval(function(){ $.get('/message', function(messages){
             $('#msg-list').html(messages);
 	    $('#sl').scrollTop($('#sl')[0].scrollHeight); 
-        });
-	refreshTimer = setInterval(getMessages, 500);
+        }); }, 500);
 }
 
 // using jQuery
