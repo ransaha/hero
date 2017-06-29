@@ -11,12 +11,17 @@ $('#chat-form').on('submit', function(event){
     });
 });
 
-function getMessages()
-{
-        setInterval(function(){ $.get('/message', function(messages){
+var myVar;
+
+function myFunction() {
+    myVar = setInterval(getmessage, 500);
+}
+
+function getmessage() {
+    $.get('/message', function(messages){
             $('#msg-list').html(messages);
 	    $('#sl').scrollTop($('#sl')[0].scrollHeight); 
-        }); }, 500);
+        });
 }
 
 // using jQuery
