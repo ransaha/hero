@@ -17,8 +17,7 @@ function getMessages(){
     if (!scrolling) {
         $.get('/message', function(messages){
             $('#msg-list').html(messages);
-            var chatlist = document.getElementById('msg-list-div');
-            chatlist.scrollTop = chatlist.scrollHeight;
+	        $('#sl').scrollTop($('#sl')[0].scrollHeight); 
         });
     }
     scrolling = false;
