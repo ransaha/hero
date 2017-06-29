@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
-{% block content %}
+<html>
+<head>
 <style>
 
 ul.ChatLog {
@@ -62,11 +62,9 @@ ul.ChatLog {
 }
 
 </style>
-<div class="row">
-        <div class="col-sm-6">
-        <div class="panel panel-default">
-        <div class="panel-heading">Chat History</div>
-        <div class="panel-body">
+</head>
+     <body>
+       
         <div id="msg-list-div">
                 <ul id="msg-list" class="ChatLog">
                 {% for obj in chat %}
@@ -78,23 +76,12 @@ ul.ChatLog {
                 {% empty %}
                 <li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">No messages yet!</p></li>
                 {% endfor %}
-                <script>
-                    var chatlist = document.getElementById('msg-list-div');
-                    chatlist.scrollTop = chatlist.scrollHeight;
-                </script>
             </ul>
         </div>
             <form id="chat-form" method="post" action="send">
             <textarea class="form-control" rows="3" id="chat-msg" name="chat-msg"></textarea>
             <input class="btn btn-default" id="send" type="submit"/>
             </form>
-      </div></div></div>
-
-      <div class="col-sm-4">
-        <div class="panel panel-default">
-        <div class="panel-heading">Online</div>
-        <div class="panel-body">
-            list of online members
-        </div></div></div>
-</div>
-{% endblock %}
+      
+</body>
+  </head>
