@@ -11,23 +11,14 @@ $('#chat-form').on('submit', function(event){
     });
 });
 
-function getMessages(){
-    if (!scrolling) {
+function getMessages()
+{
         $.get('/message', function(messages){
             $('#msg-list').html(messages);
-	        $('#sl').scrollTop($('#sl')[0].scrollHeight); 
+	    $('#sl').scrollTop($('#sl')[0].scrollHeight); 
         });
-    }
-    scrolling = false;
+	refreshTimer = setInterval(getMessages, 500);
 }
-
-var scrolling = false;
-$(function(){
-    $('#msg-list-div').on('scroll', function(){
-        scrolling = true;
-    });
-    refreshTimer = setInterval(getMessages, 500);
-});
 
 // using jQuery
 function getCookie(name) {
