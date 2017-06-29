@@ -89,8 +89,9 @@ ul.ChatLog {
       </div>
 <script src="/static/chat.js"></script>
 <script>
-var chatlist = document.getElementById('chat-form');
-chatlist.scrollTop(chatlist.scrollHeight);
+$(document).ready(function(){
+	$('#chat-form').scrollTop($('#chat-form')[0].scrollHeight); 
+});
 </script>
 </body>
   </head>
