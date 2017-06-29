@@ -7,14 +7,14 @@ $('#chat-form').on('submit', function(event){
         success : function(json){
             $('#chat-msg').val('');
             $('#msg-list').append('<li class="ChatLog__entry ChatLog__entry_mine"><p class="ChatLog__message">' + json.msg + '</p></li>');
+	    $('#sl').scrollTop($('#sl')[0].scrollHeight);
         }
     });
 });
 
 $(function(){
     setInterval(function(){$.get('/message', function(messages){
-            $('#msg-list').html(messages);
-	    $('#sl').scrollTop($('#sl')[0].scrollHeight); 
+            $('#msg-list').html(messages); 
         });}, 500);
 });
 
