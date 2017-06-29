@@ -10,9 +10,9 @@ $('#chat-form').on('submit', function(event){
         }
     });
 });
-var tt;
+
 $(function(){
-    tt = setInterval(function(){$.get('/message', function(messages){
+    setInterval(function(){$.get('/message', function(messages){
             $('#msg-list').html(messages);
 	    $('#sl').scrollTop($('#sl')[0].scrollHeight); 
         });}, 500);
