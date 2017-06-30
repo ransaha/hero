@@ -41,7 +41,7 @@
 .chat-box .chat-box-content {
   padding:10px;
   display:none;
-  max-height:400px;
+  max-height:200px;
   overflow-y:auto;
 }
 
