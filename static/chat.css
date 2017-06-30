@@ -45,3 +45,11 @@
 
 .chat-box > input[type="checkbox"]:checked + label:before {content:attr(data-expanded);}
 .chat-box > input[type="checkbox"]:checked ~ .chat-box-content {display:block;}
+
+.online 
+{
+      width:6px;
+      height:6px;
+      border-radius:3px;
+      background: lime;   
+}
