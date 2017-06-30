@@ -6,7 +6,7 @@
   right:10px;
   bottom:0px;
   color: white;
-  z-index:9999;
+  z-index:100;
   background: rgba(0, 0, 0, 0.2);
   border:none;
   -webkit-box-shadow:2px 2px 5px rgba(0,0,0,0.3);
@@ -41,6 +41,8 @@
 .chat-box .chat-box-content {
   padding:10px;
   display:none;
+  max-height:400px;
+  overflow-y:auto;
 }
 
 .chat-box > input[type="checkbox"]:checked + label:before {content:attr(data-expanded);}
