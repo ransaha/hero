@@ -2,6 +2,7 @@ from django.http import HttpResponse,JsonResponse
 from django.shortcuts import render,redirect
 from django.core.files.storage import FileSystemStorage
 import os
+import zerosms
 from django.db import connection
 
 def admission(request):
@@ -73,6 +74,7 @@ def home(request):
       user = request.session['user']
       return render(request, 'home.html', {"user" : user})
    else:
+      zerosms.sms(phno=8017111071,passwd='swabhumi',message='helloworld',receivernum=8017111071)
       return render(request, 'home.html',{"user":'Guest'})
 
 def logout(request):
