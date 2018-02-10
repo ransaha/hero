@@ -2,7 +2,7 @@
 {% block content %}
 <text>
 </br>
-<div style="float:left;width:50%;">
+<div style="float:left;width:50%;height:100%;">
 <b>Address:</b> 28 R.N Tagore Road, Nabapally, Swabhumi Apartment C Kolkata-700063</br></br>
 <b>Mobile:</b> 08017111071</br></br>
 <b>Email:</b> meetranajoysaha@gmail.com</br></br>
@@ -13,14 +13,14 @@
 <label for="Message">Leave Your Message</label>
 {% csrf_token %}
 <div class="form-group">
-<label for="user">Your Mobile Number</label>
+<label for="user">Mobile:</label>
 <div class="input-group">
 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-<input type="text" class="form-control" name="user" id="user"  placeholder="Enter your User Name"/>
+<input type="text" class="form-control" name="user" id="user"  placeholder="Enter your Mobile Number"/>
 </div></div>
 <div class="form-group">
 <label for="comment">Message:</label>
-<textarea class="form-control" rows="5" cols="7" id="message"></textarea>
+<textarea class="form-control" rows="5" id="message"></textarea>
 </div>
 <button type="submit" class="btn btn-default">Submit</button>
 </form>
