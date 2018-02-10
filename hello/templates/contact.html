@@ -5,6 +5,38 @@
 <b>Address:</b> 28 R.N Tagore Road, Nabapally, Swabhumi Apartment C Kolkata-700063</br></br>
 <b>Mobile:</b> 08017111071</br></br>
 <b>Email:</b> meetranajoysaha@gmail.com</br></br>
+
+    <p style="font-size:18px;margin:0px;"><b>Leave Us a Message</b></p></br>
+
+    <form class="" method="post" action="#">
+
+        {% csrf_token %}
+
+     <div class="form-group">
+
+		<label for="user">Your Mobile Number</label>
+
+		<div class="input-group">
+
+		<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+
+		<input type="text" class="form-control" name="user" id="user"  placeholder="Enter your User Name"/>
+
+		</div></div>
+
+
+        <div class="form-group">
+
+        <label for="comment">Comment/Requests:</label>
+
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+
+    </form>
+
 </text>
 <img src="/static/tele.jpg" style="width:100%;margin-top:-7%;"/>
 </div>
