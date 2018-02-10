@@ -17,7 +17,9 @@ def contact(request):
         user = request.session['user']
         return render(request, 'contact.html', {"user" : user})
     else:
-        #zerosms.sms(phno=8017111071,passwd='swabhumi',message='helloworld',receivernum=8017111071)
+        if request.POST.get('message'):
+            text = request.POST.get('message')
+            zerosms.sms(phno=8017111071,passwd='swabhumi',message=text,receivernum=8017111071)
         return render(request, 'contact.html',{"user":'Guest'})
 
 def new(request):
